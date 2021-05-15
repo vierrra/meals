@@ -84,6 +84,10 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uE2-dB-W6b" secondAttribute="trailing" constant="81" id="ws5-lk-Xli"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="happinessTextField" destination="FZ3-mh-4kt" id="zyq-PY-YLf"/>
+                        <outlet property="nameMealTextField" destination="Ol9-QC-Ewp" id="DyN-vS-hlF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
