@@ -7,11 +7,16 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class AddMealViewController: UIViewController {
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
+    
+    @IBAction func addMealButton(_ sender: Any) {
+        print("Add meal")
+    }
+    
 }
 

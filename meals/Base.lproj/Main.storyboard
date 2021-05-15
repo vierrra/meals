@@ -3,71 +3,85 @@
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Add Meal View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="meals" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="AddMealViewController" customModule="meals" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uE2-dB-W6b">
-                                <rect key="frame" x="96" y="269" width="128" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="soc-Rh-km4"/>
-                                </constraints>
-                                <state key="normal" title="Adicionar Refeição"/>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome Refeição" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6XZ-NM-FAa">
-                                <rect key="frame" x="16" y="151" width="116" height="21"/>
+                                <rect key="frame" x="16" y="138" width="116" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="TPd-1I-Cxl"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ex: feijão" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ol9-QC-Ewp">
                                 <rect key="frame" x="140" y="138" width="153" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="Zaa-xE-RNe"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Felicidade" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PPL-TJ-nDE">
-                                <rect key="frame" x="16" y="199" width="78" height="21"/>
+                                <rect key="frame" x="16" y="186" width="78" height="34"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="60u-BV-r4Y"/>
+                                    <constraint firstAttribute="height" constant="34" id="rg3-cq-FAs"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ex: 1 triste | 5 muito feliz" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FZ3-mh-4kt">
                                 <rect key="frame" x="140" y="186" width="153" height="34"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="34" id="Gf7-aO-PTf"/>
+                                    <constraint firstAttribute="height" constant="34" id="qxB-Hz-LzJ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uE2-dB-W6b">
+                                <rect key="frame" x="81" y="268.5" width="158" height="30"/>
+                                <color key="backgroundColor" name="AccentColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="ZEP-wS-UYg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="17"/>
+                                <state key="normal" title="Adicionar Refeição">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="addMealButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jo9-xN-PuX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uE2-dB-W6b" secondAttribute="trailing" constant="96" id="2jM-e9-ke6"/>
-                            <constraint firstItem="FZ3-mh-4kt" firstAttribute="top" secondItem="Ol9-QC-Ewp" secondAttribute="bottom" constant="14" id="K0g-NU-07m"/>
-                            <constraint firstItem="uE2-dB-W6b" firstAttribute="top" secondItem="FZ3-mh-4kt" secondAttribute="bottom" constant="49" id="OP8-uV-TDF"/>
-                            <constraint firstItem="6XZ-NM-FAa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="PyW-40-nFn"/>
-                            <constraint firstItem="Ol9-QC-Ewp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="138" id="RGk-4Q-lgH"/>
-                            <constraint firstItem="uE2-dB-W6b" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="96" id="XIC-kA-PAD"/>
-                            <constraint firstItem="6XZ-NM-FAa" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="151" id="Xzf-gu-v7S"/>
-                            <constraint firstItem="PPL-TJ-nDE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="YOl-Hv-GjT"/>
-                            <constraint firstItem="PPL-TJ-nDE" firstAttribute="top" secondItem="6XZ-NM-FAa" secondAttribute="bottom" constant="27" id="YTe-YW-h4t"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ol9-QC-Ewp" secondAttribute="trailing" constant="27" id="e4H-me-oN0"/>
-                            <constraint firstItem="FZ3-mh-4kt" firstAttribute="leading" secondItem="PPL-TJ-nDE" secondAttribute="trailing" constant="46" id="j8p-M6-tEE"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FZ3-mh-4kt" secondAttribute="trailing" constant="27" id="nhT-cm-oQ5"/>
-                            <constraint firstItem="Ol9-QC-Ewp" firstAttribute="leading" secondItem="6XZ-NM-FAa" secondAttribute="trailing" constant="8" symbolic="YES" id="sT8-9D-3fU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FZ3-mh-4kt" secondAttribute="trailing" constant="27" id="42h-1o-uht"/>
+                            <constraint firstItem="PPL-TJ-nDE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="6mB-pp-lfV"/>
+                            <constraint firstItem="FZ3-mh-4kt" firstAttribute="leading" secondItem="PPL-TJ-nDE" secondAttribute="trailing" constant="46" id="QAa-us-Vpp"/>
+                            <constraint firstItem="uE2-dB-W6b" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="81" id="RII-uZ-jiv"/>
+                            <constraint firstItem="6XZ-NM-FAa" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="138" id="StD-xD-2ki"/>
+                            <constraint firstItem="Ol9-QC-Ewp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="138" id="YvX-By-Uhb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ol9-QC-Ewp" secondAttribute="trailing" constant="27" id="a7Y-7B-8es"/>
+                            <constraint firstItem="6XZ-NM-FAa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="ebZ-yH-eie"/>
+                            <constraint firstItem="uE2-dB-W6b" firstAttribute="top" secondItem="PPL-TJ-nDE" secondAttribute="bottom" constant="48.5" id="fTf-ni-Ucf"/>
+                            <constraint firstItem="PPL-TJ-nDE" firstAttribute="top" secondItem="6XZ-NM-FAa" secondAttribute="bottom" constant="14" id="gMt-UN-Ho7"/>
+                            <constraint firstItem="Ol9-QC-Ewp" firstAttribute="leading" secondItem="6XZ-NM-FAa" secondAttribute="trailing" constant="8" symbolic="YES" id="njN-35-D4o"/>
+                            <constraint firstItem="FZ3-mh-4kt" firstAttribute="top" secondItem="Ol9-QC-Ewp" secondAttribute="bottom" constant="14" id="v9b-DW-Xch"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uE2-dB-W6b" secondAttribute="trailing" constant="81" id="ws5-lk-Xli"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -77,6 +91,9 @@
         </scene>
     </scenes>
     <resources>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
