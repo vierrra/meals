@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="umf-bm-4hc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kIs-Af-LKG">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome Refeição" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6XZ-NM-FAa">
-                                <rect key="frame" x="16" y="138" width="116" height="34"/>
+                                <rect key="frame" x="16" y="182" width="116" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="TPd-1I-Cxl"/>
                                 </constraints>
@@ -27,7 +27,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ex: feijão" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ol9-QC-Ewp">
-                                <rect key="frame" x="140" y="138" width="153" height="34"/>
+                                <rect key="frame" x="140" y="182" width="153" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="Zaa-xE-RNe"/>
                                 </constraints>
@@ -35,7 +35,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Felicidade" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PPL-TJ-nDE">
-                                <rect key="frame" x="16" y="186" width="78" height="34"/>
+                                <rect key="frame" x="16" y="230" width="78" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="rg3-cq-FAs"/>
                                 </constraints>
@@ -44,7 +44,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ex: 1 triste | 5 muito feliz" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FZ3-mh-4kt">
-                                <rect key="frame" x="140" y="186" width="153" height="34"/>
+                                <rect key="frame" x="140" y="230" width="153" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="qxB-Hz-LzJ"/>
                                 </constraints>
@@ -52,7 +52,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uE2-dB-W6b">
-                                <rect key="frame" x="81" y="268.5" width="158" height="30"/>
+                                <rect key="frame" x="81" y="312.5" width="158" height="30"/>
                                 <color key="backgroundColor" name="AccentColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="ZEP-wS-UYg"/>
@@ -84,6 +84,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uE2-dB-W6b" secondAttribute="trailing" constant="81" id="ws5-lk-Xli"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="FWw-UX-klz"/>
                     <connections>
                         <outlet property="happinessTextField" destination="FZ3-mh-4kt" id="zyq-PY-YLf"/>
                         <outlet property="nameMealTextField" destination="Ol9-QC-Ewp" id="DyN-vS-hlF"/>
@@ -116,10 +117,33 @@
                             <outlet property="delegate" destination="umf-bm-4hc" id="khZ-Jr-fxv"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="MAW-gw-Wkl">
+                        <barButtonItem key="rightBarButtonItem" title="ADD" id="qng-8y-dvp">
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="show" id="vh9-F0-Wk1"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5ug-zf-ua2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-769" y="80"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="njS-Id-vI9">
+            <objects>
+                <navigationController id="kIs-Af-LKG" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="uLb-Tq-gSm">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="umf-bm-4hc" kind="relationship" relationship="rootViewController" id="5hH-P1-5tm"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BHU-ef-00M" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1701" y="79"/>
         </scene>
     </scenes>
     <resources>
