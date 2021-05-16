@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		884C335E2650BB45003653A8 /* MealsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884C335D2650BB45003653A8 /* MealsTableViewController.swift */; };
 		887D810426503D8D0070A63D /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887D810326503D8D0070A63D /* Meal.swift */; };
 		887D810726503E350070A63D /* ItemsMeal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887D810626503E350070A63D /* ItemsMeal.swift */; };
 		88C70B49264F6500009D02D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C70B48264F6500009D02D7 /* AppDelegate.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		884C335D2650BB45003653A8 /* MealsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsTableViewController.swift; sourceTree = "<group>"; };
 		887D810326503D8D0070A63D /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		887D810626503E350070A63D /* ItemsMeal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsMeal.swift; sourceTree = "<group>"; };
 		88C70B45264F6500009D02D7 /* meals.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = meals.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				88C70B4C264F6500009D02D7 /* AddMealViewController.swift */,
+				884C335D2650BB45003653A8 /* MealsTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -171,6 +174,7 @@
 			files = (
 				887D810426503D8D0070A63D /* Meal.swift in Sources */,
 				88C70B4D264F6500009D02D7 /* AddMealViewController.swift in Sources */,
+				884C335E2650BB45003653A8 /* MealsTableViewController.swift in Sources */,
 				88C70B49264F6500009D02D7 /* AppDelegate.swift in Sources */,
 				88C70B4B264F6500009D02D7 /* SceneDelegate.swift in Sources */,
 				887D810726503E350070A63D /* ItemsMeal.swift in Sources */,
