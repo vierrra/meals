@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MealsTableViewController: UITableViewController  {
+class MealsTableViewController: UITableViewController, AddMealViewControllerDelegate  {
     
     var meals = [Meal(nameMeal: "Pizza", happiness: 5),
                  Meal(nameMeal: "Macarao", happiness: 4),
@@ -22,10 +22,9 @@ class MealsTableViewController: UITableViewController  {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "AddMeal" {
             if let viewController = segue.destination as? AddMealViewController {
-                viewController.mealsTableViewController = self
+                viewController.delegate = self
             }
         }
-        
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
