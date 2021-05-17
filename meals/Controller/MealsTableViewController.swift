@@ -20,9 +20,12 @@ class MealsTableViewController: UITableViewController  {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let viewController = segue.destination as? AddMealViewController {
-            viewController.mealsTableViewController = self
+        if segue.identifier == "AddMeal" {
+            if let viewController = segue.destination as? AddMealViewController {
+                viewController.mealsTableViewController = self
+            }
         }
+        
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

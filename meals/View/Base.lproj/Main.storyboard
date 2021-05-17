@@ -120,7 +120,7 @@
                     <navigationItem key="navigationItem" id="MAW-gw-Wkl">
                         <barButtonItem key="rightBarButtonItem" title="ADD" id="qng-8y-dvp">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="show" id="vh9-F0-Wk1"/>
+                                <segue destination="BYZ-38-t0r" kind="show" identifier="AddMeal" id="vh9-F0-Wk1"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
