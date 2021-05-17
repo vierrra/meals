@@ -9,9 +9,21 @@ import UIKit
 
 class MealsTableViewController: UITableViewController  {
     
-    let meals = [Meal(nameMeal: "Pizza", happiness: 5),
+    var meals = [Meal(nameMeal: "Pizza", happiness: 5),
                  Meal(nameMeal: "Macarao", happiness: 4),
                  Meal(nameMeal: "Sopa", happiness: 2)]
+    
+    func addMeal(_ meal: Meal) {
+        meals.append(meal)
+        
+        tableView.reloadData()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let viewController = segue.destination as? AddMealViewController {
+            viewController.mealsTableViewController = self
+        }
+    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         

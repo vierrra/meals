@@ -12,6 +12,8 @@ class AddMealViewController: UIViewController {
     @IBOutlet weak var nameMealTextField:  UITextField?
     @IBOutlet weak var happinessTextField: UITextField?
     
+    var mealsTableViewController: MealsTableViewController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -22,6 +24,10 @@ class AddMealViewController: UIViewController {
         let meal = Meal(nameMeal: nameMealTextField, happiness: happinessTextField)
         
         print("Comi \(meal.nameMeal) e tive felicidade: \(meal.happiness)")
+        
+        mealsTableViewController?.addMeal(meal)
+        
+        navigationController?.popViewController(animated: true)
     }
 }
 
