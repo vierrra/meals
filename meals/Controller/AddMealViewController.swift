@@ -16,9 +16,12 @@ class AddMealViewController: UIViewController {
     
     // MARK: - Attributes
     
-    var delegate: AddMealDelegate?
+    var delegate:       AddMealDelegate?
+    var items:          [ItemsMeal] = [ItemsMeal("Molho de tomate", 100.0),
+                                       ItemsMeal("Queijo", 120.0),
+                                       ItemsMeal("Manjeiricão", 100.0)]
+    var selectionItems: [ItemsMeal] = []
     
-    let items = ["Mollho de tomate", "Majericão"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,9 +32,8 @@ class AddMealViewController: UIViewController {
     @IBAction func addMealButton(_ sender: Any) {
         guard let nameMealTextField = nameMealTextField?.text, let happinessTextField = Int((happinessTextField?.text)!)  else { return }
         
-        let meal = Meal(nameMeal: nameMealTextField, happiness: happinessTextField)
+        let meal = Meal(nameMeal: nameMealTextField, happiness: happinessTextField, itemsMeal: selectionItems)
         
-        print("Comi \(meal.nameMeal) e tive felicidade: \(meal.happiness)")
         
         delegate?.addMeal(meal)
         
@@ -55,8 +57,9 @@ extension AddMealViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
+        let item = items[indexPath.row]
         
-        cell.textLabel?.text = items[indexPath.row]
+        cell.textLabel?.text = item.nameItemMeal
         
         return cell
     }
@@ -66,8 +69,15 @@ extension AddMealViewController: UITableViewDataSource, UITableViewDelegate {
         
         if cell.accessoryType == .none {
             cell.accessoryType = .checkmark
+            selectionItems.append(items[indexPath.row])
         } else {
             cell.accessoryType = .none
+            
+            let item = items[indexPath.row]
+            
+            if let positionItem = selectionItems.firstIndex(of: item) {
+                selectionItems.remove(at: positionItem)
+            }
         }
     }
 }

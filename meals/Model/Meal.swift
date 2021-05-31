@@ -10,13 +10,14 @@ import UIKit
 class Meal {
     let nameMeal:  String
     let happiness: Int
-    let itemsMeal: [ItemsMeal] = []
+    var itemsMeal: [ItemsMeal] = []
     
     // MARK: - Constructor
     
-    init(nameMeal: String, happiness: Int) {
+    init(nameMeal: String, happiness: Int, itemsMeal: [ItemsMeal] = []) {
         self.nameMeal  = nameMeal
         self.happiness = happiness
+        self.itemsMeal = itemsMeal
     }
     
     //MARK: - Method
