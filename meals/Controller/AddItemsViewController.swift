@@ -8,13 +8,36 @@
 import UIKit
 
 class AddItemsViewController: UIViewController {
-
+    
+    @IBOutlet weak var itemTextField:     UITextField?
+    @IBOutlet weak var caloriesTextField: UITextField?
+    
+    var delegate: AddItemsDelegate?
+    
+    init(delegate: AddItemsDelegate) {
+        super.init(nibName: "AddItemsViewController", bundle: nil)
+        self.delegate = delegate
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     @IBAction func AddItemButton(_ sender: Any) {
+        guard let itemTextField = itemTextField?.text, let caloriesTextField = Double((caloriesTextField?.text)!) else { return }
+        
+        let item = ItemsMeal(itemTextField, caloriesTextField)
+        
+        delegate?.addItem(item)
+        
         navigationController?.popViewController(animated: true)
     }
-    
+}
+
+protocol AddItemsDelegate {
+    func addItem(_ item: ItemsMeal)
 }

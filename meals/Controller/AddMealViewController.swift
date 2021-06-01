@@ -7,12 +7,13 @@
 
 import UIKit
 
-class AddMealViewController: UIViewController {
+class AddMealViewController: UIViewController, AddItemsDelegate {
 
     //MARK: - IBOutlet
     
     @IBOutlet weak var nameMealTextField:  UITextField?
     @IBOutlet weak var happinessTextField: UITextField?
+    @IBOutlet weak var itemsTableView:     UITableView!
     
     // MARK: - Attributes
     
@@ -36,7 +37,7 @@ class AddMealViewController: UIViewController {
     }
     
     @objc func actionToBarButton() {
-        let viewController = AddItemsViewController()
+        let viewController = AddItemsViewController(delegate: self)
         
         navigationController?.pushViewController(viewController, animated: true)
     }
@@ -52,6 +53,11 @@ class AddMealViewController: UIViewController {
         
         navigationController?.popViewController(animated: true)
     }
+    
+    func addItem(_ item: ItemsMeal) {
+        items.append(item)
+        itemsTableView.reloadData()
+    }
 }
 
 //MARK: - Protocols
@@ -63,6 +69,7 @@ protocol AddMealDelegate {
 //MARK: - Extension
 
 extension AddMealViewController: UITableViewDataSource, UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return items.count

@@ -10,6 +10,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddItemsViewController" customModule="meals" customModuleProvider="target">
             <connections>
+                <outlet property="caloriesTextField" destination="3Ta-cj-tvL" id="i6x-77-ht5"/>
+                <outlet property="itemTextField" destination="7oR-Ws-Apm" id="6uq-IC-sci"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
