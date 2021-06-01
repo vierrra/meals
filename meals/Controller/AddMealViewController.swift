@@ -25,6 +25,18 @@ class AddMealViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.createTopBarButton()
+    }
+    
+    func createTopBarButton () {
+        let topBarButton = UIBarButtonItem(title: "Adicionar Item", style: .plain, target: self, action: #selector(actionToBarButton))
+        
+        navigationItem.rightBarButtonItem = topBarButton
+    }
+    
+    @objc func actionToBarButton() {
+        print("Clicou")
     }
     
     //MARK: - IBAction
@@ -33,7 +45,6 @@ class AddMealViewController: UIViewController {
         guard let nameMealTextField = nameMealTextField?.text, let happinessTextField = Int((happinessTextField?.text)!)  else { return }
         
         let meal = Meal(nameMeal: nameMealTextField, happiness: happinessTextField, itemsMeal: selectionItems)
-        
         
         delegate?.addMeal(meal)
         
