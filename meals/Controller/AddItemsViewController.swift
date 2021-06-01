@@ -32,7 +32,8 @@ class AddItemsViewController: UIViewController {
         
         let item = ItemsMeal(itemTextField, caloriesTextField)
         
-        delegate?.addItem(item)
+        guard let delegate = delegate else { return }
+        delegate.addItem(item)
         
         navigationController?.popViewController(animated: true)
     }

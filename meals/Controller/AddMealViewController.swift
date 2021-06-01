@@ -13,7 +13,7 @@ class AddMealViewController: UIViewController, AddItemsDelegate {
     
     @IBOutlet weak var nameMealTextField:  UITextField?
     @IBOutlet weak var happinessTextField: UITextField?
-    @IBOutlet weak var itemsTableView:     UITableView!
+    @IBOutlet weak var itemsTableView:     UITableView?
     
     // MARK: - Attributes
     
@@ -49,14 +49,29 @@ class AddMealViewController: UIViewController, AddItemsDelegate {
         
         let meal = Meal(nameMeal: nameMealTextField, happiness: happinessTextField, itemsMeal: selectionItems)
         
-        delegate?.addMeal(meal)
+        guard let delegate = delegate else { return }
+        delegate.addMeal(meal)
         
         navigationController?.popViewController(animated: true)
     }
     
     func addItem(_ item: ItemsMeal) {
         items.append(item)
-        itemsTableView.reloadData()
+         
+        if let itemsTableView = itemsTableView {
+            itemsTableView.reloadData()
+        } else {
+            self.alertAction()
+        }
+    }
+    
+    func alertAction() {
+        let alert    = UIAlertController(title: "Atenção", message: "Não foi possível adicionar o item na lista.", preferredStyle: .alert)
+        let okButton = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        
+        alert.addAction(okButton)
+        
+        present(alert, animated: true, completion: nil)
     }
 }
 

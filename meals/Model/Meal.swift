@@ -20,7 +20,7 @@ class Meal {
         self.itemsMeal = itemsMeal
     }
     
-    //MARK: - Method
+    //MARK: - Methods
     
     func totalCalories() -> Double {
         var totalCalories = 0.0
@@ -30,5 +30,15 @@ class Meal {
         }
         
         return totalCalories
+    }
+    
+    func details() -> String {
+        var message =  "Felicidade: \(happiness)"
+        
+        for item in itemsMeal {
+            message += ", \(item.nameItemMeal) - calorias: \(item.calories)"
+        }
+        
+        return message
     }
 }
