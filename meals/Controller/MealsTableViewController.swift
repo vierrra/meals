@@ -34,11 +34,19 @@ class MealsTableViewController: UITableViewController, AddMealDelegate  {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
+        let cell     = UITableViewCell(style: .default, reuseIdentifier: nil)
         let allMeals = meals[indexPath.row]
-        
+        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(showDetailMeal(gesture:)))
+       
+        cell.addGestureRecognizer(longPress)
         cell.textLabel?.text = allMeals.nameMeal
         
         return cell
+    }
+    
+    @objc func showDetailMeal(gesture: UILongPressGestureRecognizer) {
+        if gesture.state == .began {
+            print("LongPress foi acionado!")
+        }
     }
 }
