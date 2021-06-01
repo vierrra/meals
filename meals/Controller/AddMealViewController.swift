@@ -36,7 +36,9 @@ class AddMealViewController: UIViewController {
     }
     
     @objc func actionToBarButton() {
-        print("Clicou")
+        let viewController = AddItemsViewController()
+        
+        navigationController?.pushViewController(viewController, animated: true)
     }
     
     //MARK: - IBAction
