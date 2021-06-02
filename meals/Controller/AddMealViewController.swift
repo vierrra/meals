@@ -30,6 +30,8 @@ class AddMealViewController: UIViewController, AddItemsDelegate {
         self.createTopBarButton()
     }
     
+    //MARK: -  Methods
+    
     func createTopBarButton () {
         let topBarButton = UIBarButtonItem(title: "Adicionar Item", style: .plain, target: self, action: #selector(actionToBarButton))
         
@@ -42,19 +44,6 @@ class AddMealViewController: UIViewController, AddItemsDelegate {
         navigationController?.pushViewController(viewController, animated: true)
     }
     
-    //MARK: - IBAction
-    
-    @IBAction func addMealButton(_ sender: Any) {
-        guard let nameMealTextField = nameMealTextField?.text, let happinessTextField = Int((happinessTextField?.text)!)  else { return }
-        
-        let meal = Meal(nameMeal: nameMealTextField, happiness: happinessTextField, itemsMeal: selectionItems)
-        
-        guard let delegate = delegate else { return }
-        delegate.addMeal(meal)
-        
-        navigationController?.popViewController(animated: true)
-    }
-    
     func addItem(_ item: ItemsMeal) {
         items.append(item)
          
@@ -63,6 +52,24 @@ class AddMealViewController: UIViewController, AddItemsDelegate {
         } else {
             Alert(controller: self).showAlertAction(title: "Atenção", message: "Não foi possível adicionar o item na lista")
         }
+    }
+    
+    func recoveryMealForm() -> Meal? {
+        guard let nameMealTextField = nameMealTextField?.text, let happinessTextField = Int((happinessTextField?.text)!) else { return nil }
+        
+        let meal = Meal(nameMeal: nameMealTextField, happiness: happinessTextField, itemsMeal: selectionItems)
+        
+        return meal
+    }
+
+    //MARK: - IBAction
+    
+    @IBAction func addMealButton(_ sender: Any) {
+        
+        guard let delegate = delegate, let meal = recoveryMealForm() else { return }
+        delegate.addMeal(meal)
+        
+        navigationController?.popViewController(animated: true)
     }
 }
 
