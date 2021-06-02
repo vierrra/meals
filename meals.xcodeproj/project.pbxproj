@@ -13,6 +13,8 @@
 		886A79C82667052D00A78117 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886A79C72667052D00A78117 /* Alert.swift */; };
 		887D810426503D8D0070A63D /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887D810326503D8D0070A63D /* Meal.swift */; };
 		887D810726503E350070A63D /* ItemsMeal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887D810626503E350070A63D /* ItemsMeal.swift */; };
+		8880F1132668397E0032B0AA /* MealDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8880F1122668397E0032B0AA /* MealDao.swift */; };
+		8880F115266840970032B0AA /* ItemsDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8880F114266840970032B0AA /* ItemsDao.swift */; };
 		88C70B49264F6500009D02D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C70B48264F6500009D02D7 /* AppDelegate.swift */; };
 		88C70B4B264F6500009D02D7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C70B4A264F6500009D02D7 /* SceneDelegate.swift */; };
 		88C70B4D264F6500009D02D7 /* AddMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C70B4C264F6500009D02D7 /* AddMealViewController.swift */; };
@@ -28,6 +30,8 @@
 		886A79C72667052D00A78117 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		887D810326503D8D0070A63D /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		887D810626503E350070A63D /* ItemsMeal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsMeal.swift; sourceTree = "<group>"; };
+		8880F1122668397E0032B0AA /* MealDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDao.swift; sourceTree = "<group>"; };
+		8880F114266840970032B0AA /* ItemsDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsDao.swift; sourceTree = "<group>"; };
 		88C70B45264F6500009D02D7 /* meals.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = meals.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88C70B48264F6500009D02D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88C70B4A264F6500009D02D7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +90,15 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		8880F1112668396B0032B0AA /* Dao */ = {
+			isa = PBXGroup;
+			children = (
+				8880F1122668397E0032B0AA /* MealDao.swift */,
+				8880F114266840970032B0AA /* ItemsDao.swift */,
+			);
+			path = Dao;
+			sourceTree = "<group>";
+		};
 		88C70B3C264F6500009D02D7 = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +118,7 @@
 		88C70B47264F6500009D02D7 /* meals */ = {
 			isa = PBXGroup;
 			children = (
+				8880F1112668396B0032B0AA /* Dao */,
 				887D810926503E9B0070A63D /* Model */,
 				887D810A26503EB40070A63D /* View */,
 				887D810B26503EC50070A63D /* Controller */,
@@ -191,6 +205,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				887D810426503D8D0070A63D /* Meal.swift in Sources */,
+				8880F115266840970032B0AA /* ItemsDao.swift in Sources */,
 				88C70B4D264F6500009D02D7 /* AddMealViewController.swift in Sources */,
 				880EB0622665A8C300D7548F /* AddItemsViewController.swift in Sources */,
 				884C335E2650BB45003653A8 /* MealsTableViewController.swift in Sources */,
@@ -198,6 +213,7 @@
 				88C70B4B264F6500009D02D7 /* SceneDelegate.swift in Sources */,
 				886A79C82667052D00A78117 /* Alert.swift in Sources */,
 				887D810726503E350070A63D /* ItemsMeal.swift in Sources */,
+				8880F1132668397E0032B0AA /* MealDao.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -42,7 +42,7 @@ class Meal: NSObject, NSCoding {
         return message
     }
     
-    //Mark: - NSCondig
+    //Mark: - NSCoding
     
     func encode(with coder: NSCoder) {
         coder.encode(nameMeal, forKey: "nameMeal")

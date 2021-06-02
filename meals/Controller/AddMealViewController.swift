@@ -17,9 +17,7 @@ class AddMealViewController: UIViewController, AddItemsDelegate {
     
     // MARK: - Attributes
 
-    var items = [ItemsMeal("Molho de tomate", 100.0),
-                 ItemsMeal("Queijo", 120.0),
-                 ItemsMeal("Manjeiricão", 100.0)]
+    var items: [ItemsMeal] = []
     
     var selectionItems: [ItemsMeal] = []
     var delegate:       AddMealDelegate?
@@ -29,16 +27,7 @@ class AddMealViewController: UIViewController, AddItemsDelegate {
         
         self.createTopBarButton()
         
-        guard let way = recoveryDirectory() else { return }
-
-        do {
-            let data = try Data(contentsOf: way)
-            guard let itemsSalved = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? [ItemsMeal] else { return }
-
-            items = itemsSalved
-        } catch {
-            print(error.localizedDescription)
-        }
+        items = ItemsDao().recoveryData()
     }
     
     //MARK: -  Methods
@@ -64,24 +53,7 @@ class AddMealViewController: UIViewController, AddItemsDelegate {
             Alert(controller: self).showAlertAction(title: "Atenção", message: "Não foi possível adicionar o item na lista")
         }
         
-        guard let way = recoveryDirectory() else { return }
-        
-        do {
-            let data = try NSKeyedArchiver.archivedData(withRootObject: items, requiringSecureCoding: false)
-            
-                       try data.write(to: way)
-            
-        } catch {
-            print(error.localizedDescription)
-        }
-    }
-    
-    func recoveryDirectory() -> URL? {
-        guard let directory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
-        
-        let way = directory.appendingPathComponent("item")
-        
-        return way
+        ItemsDao().saveData(items)
     }
     
     func recoveryMealForm() -> Meal? {
