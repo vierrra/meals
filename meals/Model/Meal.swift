@@ -7,7 +7,7 @@
 
 import UIKit
 
-class Meal {
+class Meal: NSCoding {
     let nameMeal:  String
     let happiness: Int
     var itemsMeal: [ItemsMeal] = []
@@ -40,5 +40,19 @@ class Meal {
         }
         
         return message
+    }
+    
+    //Mark: - NSCondig
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(nameMeal, forKey: "nameMeal")
+        coder.encode(happiness, forKey: "happiness")
+        coder.encode(itemsMeal, forKey: "itemsMeal")
+    }
+    
+    required init?(coder: NSCoder) {
+        nameMeal  = coder.decodeObject(forKey: "nameMeal") as! String
+        happiness = coder.decodeInteger(forKey: "happiness")
+        itemsMeal = coder.decodeObject(forKey: "itemsMeal") as! [ItemsMeal]
     }
 }

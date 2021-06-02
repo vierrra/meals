@@ -7,8 +7,7 @@
 
 import UIKit
 
-class ItemsMeal: Equatable {
-
+class ItemsMeal: Equatable, NSCoding {
     let nameItemMeal: String
     let calories:     Double
     
@@ -19,6 +18,16 @@ class ItemsMeal: Equatable {
     
     static func == (lhs: ItemsMeal, rhs: ItemsMeal) -> Bool {
         return lhs.nameItemMeal == rhs.nameItemMeal && lhs.calories == rhs.calories
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(nameItemMeal, forKey: "nameMeal")
+        coder.encode(calories, forKey: "calories")
+    }
+    
+    required init?(coder: NSCoder) {
+        nameItemMeal = coder.decodeObject(forKey: "nameItemMeal") as! String
+        calories     = coder.decodeDouble(forKey: "calories")
     }
 }
 
