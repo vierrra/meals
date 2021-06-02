@@ -105,11 +105,12 @@ extension AddMealViewController: UITableViewDataSource, UITableViewDelegate {
             selectionItems.append(items[indexPath.row])
         } else {
             cell.accessoryType = .none
-            
-            let item = items[indexPath.row]
-            
-            if let positionItem = selectionItems.firstIndex(of: item) {
-                selectionItems.remove(at: positionItem)
+            if let positionItem = selectionItems.firstIndex(of: items[indexPath.row]) {
+            selectionItems.remove(at: positionItem)
+                
+                for item in selectionItems {
+                    print(item.nameItemMeal)
+                }
             }
         }
     }
