@@ -61,17 +61,8 @@ class AddMealViewController: UIViewController, AddItemsDelegate {
         if let itemsTableView = itemsTableView {
             itemsTableView.reloadData()
         } else {
-            self.alertAction()
+            Alert(controller: self).showAlertAction(title: "Atenção", message: "Não foi possível adicionar o item na lista")
         }
-    }
-    
-    func alertAction() {
-        let alert    = UIAlertController(title: "Atenção", message: "Não foi possível adicionar o item na lista.", preferredStyle: .alert)
-        let okButton = UIAlertAction(title: "Ok", style: .default, handler: nil)
-        
-        alert.addAction(okButton)
-        
-        present(alert, animated: true, completion: nil)
     }
 }
 

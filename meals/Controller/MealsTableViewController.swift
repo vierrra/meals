@@ -51,18 +51,20 @@ class MealsTableViewController: UITableViewController, AddMealDelegate  {
             if let indexPath = tableView.indexPath(for: cell) {
                 let meal = meals[indexPath.row]
                 
-                self.showAlertAction(meal)
+                Alert.init(controller: self).showAlertAction(title: "\(meal.nameMeal)", message: meal.details())
+                
+                //self.showAlertAction(meal)
             }
         }
     }
     
-    func showAlertAction(_ meal: Meal) {
-        
-        let alert = UIAlertController(title: "\(meal.nameMeal)", message: meal.details(), preferredStyle: .alert)
-        let okButton = UIAlertAction(title: "Ok", style: .default, handler: nil)
-        
-        alert.addAction(okButton)
-        
-        present(alert, animated: true, completion: nil)
-    }
+//    func showAlertAction(_ meal: Meal) {
+//        
+//        let alert = UIAlertController(title: "\(meal.nameMeal)", message: meal.details(), preferredStyle: .alert)
+//        let okButton = UIAlertAction(title: "Ok", style: .default, handler: nil)
+//        
+//        alert.addAction(okButton)
+//        
+//        present(alert, animated: true, completion: nil)
+//    }
 }

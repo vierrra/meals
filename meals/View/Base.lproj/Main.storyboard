@@ -111,7 +111,7 @@
                     <navigationItem key="navigationItem" id="FWw-UX-klz"/>
                     <connections>
                         <outlet property="happinessTextField" destination="FZ3-mh-4kt" id="zyq-PY-YLf"/>
-                        <outlet property="itemsTableView" destination="OXW-Mw-TYk" id="06U-TR-1ps"/>
+                        <outlet property="itemsTableView" destination="OXW-Mw-TYk" id="DkT-bG-gmX"/>
                         <outlet property="nameMealTextField" destination="Ol9-QC-Ewp" id="DyN-vS-hlF"/>
                     </connections>
                 </viewController>
