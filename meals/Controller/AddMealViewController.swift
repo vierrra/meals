@@ -16,18 +16,29 @@ class AddMealViewController: UIViewController, AddItemsDelegate {
     @IBOutlet weak var itemsTableView:     UITableView?
     
     // MARK: - Attributes
+
+    var items = [ItemsMeal("Molho de tomate", 100.0),
+                 ItemsMeal("Queijo", 120.0),
+                 ItemsMeal("Manjeiricão", 100.0)]
     
-    var delegate:       AddMealDelegate?
-    var items:          [ItemsMeal] = [ItemsMeal("Molho de tomate", 100.0),
-                                       ItemsMeal("Queijo", 120.0),
-                                       ItemsMeal("Manjeiricão", 100.0)]
     var selectionItems: [ItemsMeal] = []
+    var delegate:       AddMealDelegate?
     
     
     override func viewDidLoad() {
-        super.viewDidLoad()
         
         self.createTopBarButton()
+        
+        guard let way = recoveryDirectory() else { return }
+
+        do {
+            let data = try Data(contentsOf: way)
+            guard let itemsSalved = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? [ItemsMeal] else { return }
+
+            items = itemsSalved
+        } catch {
+            print(error.localizedDescription)
+        }
     }
     
     //MARK: -  Methods
@@ -52,6 +63,25 @@ class AddMealViewController: UIViewController, AddItemsDelegate {
         } else {
             Alert(controller: self).showAlertAction(title: "Atenção", message: "Não foi possível adicionar o item na lista")
         }
+        
+        guard let way = recoveryDirectory() else { return }
+        
+        do {
+            let data = try NSKeyedArchiver.archivedData(withRootObject: items, requiringSecureCoding: false)
+            
+                       try data.write(to: way)
+            
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+    func recoveryDirectory() -> URL? {
+        guard let directory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
+        
+        let way = directory.appendingPathComponent("item")
+        
+        return way
     }
     
     func recoveryMealForm() -> Meal? {
@@ -106,11 +136,7 @@ extension AddMealViewController: UITableViewDataSource, UITableViewDelegate {
         } else {
             cell.accessoryType = .none
             if let positionItem = selectionItems.firstIndex(of: items[indexPath.row]) {
-            selectionItems.remove(at: positionItem)
-                
-                for item in selectionItems {
-                    print(item.nameItemMeal)
-                }
+                    selectionItems.remove(at: positionItem)
             }
         }
     }

@@ -13,6 +13,27 @@ class MealsTableViewController: UITableViewController, AddMealDelegate  {
                  Meal(nameMeal: "Macarao", happiness: 4),
                  Meal(nameMeal: "Sopa", happiness: 2)]
     
+    override func viewDidLoad() {
+        guard let way = recoveryDirectory() else { return }
+        
+        do {
+            let data = try Data(contentsOf: way)
+            guard let mealSalved = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? [Meal] else { return }
+            
+            meals = mealSalved
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+    func recoveryDirectory() -> URL? {
+        guard let directory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
+        
+        let way  = directory.appendingPathComponent("meal")
+        
+        return way
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return meals.count
@@ -62,6 +83,17 @@ class MealsTableViewController: UITableViewController, AddMealDelegate  {
         meals.append(meal)
         
         tableView.reloadData()
+        
+        guard let way = recoveryDirectory() else { return }
+        
+        do {
+            let data = try NSKeyedArchiver.archivedData(withRootObject: meals, requiringSecureCoding: false)
+            
+                       try data.write(to: way)
+            
+        } catch {
+            print(error.localizedDescription)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

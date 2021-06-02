@@ -7,7 +7,7 @@
 
 import UIKit
 
-class Meal: NSCoding {
+class Meal: NSObject, NSCoding {
     let nameMeal:  String
     let happiness: Int
     var itemsMeal: [ItemsMeal] = []
